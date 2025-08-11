@@ -55,7 +55,7 @@ const Navbar = () => {
       <li key={menu.id}>
         <a
           href={menu.path}
-          className=" text-black font-bold inline-block py-2 px-3 relative group text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-400 to-yellow-400 transition-all duration-500"
+          className="text-gray-900 text-lg inline-block py-2 px-3 relative group text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-400 to-yellow-400 transition-all duration-500"
         >
           {menu.title}
           {/* Gradient underline */}
