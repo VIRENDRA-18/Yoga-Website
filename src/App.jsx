@@ -5,6 +5,7 @@ import WhatIsYoga from './components/WhatIsYoga/WhatIsYoga'
 import Services from './components/Services/Services'
 import WhatStudentsThink from './components/WhatStudentsThink/WhatStudentsThink'
 import ContactSection from './components/ContactSection/ContactSection'
+import FooterPart from './components/FooterPart/FooterPart'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Services />  
       <WhatStudentsThink />
       <ContactSection />
+      <FooterPart />
       {/* Add other components here as needed */}
     </main>
   )

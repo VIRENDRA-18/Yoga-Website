@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoMdMenu } from "react-icons/io";
 import { motion } from "framer-motion";
-import logo from '../../assets/Yoga-Website-Logo.png';
+import logo from '../../assets/One-Jeet-Logo.png'; // Yoga-Website\src\assets\One-Jeet-Logo.png
 
 
 import './Navbar.css'
@@ -37,11 +37,11 @@ const NavbarMenu = [
 const Navbar = () => {
   return (
     <header>
-    <nav className="relative z-20">
+    <nav className="relative z-20 -mt-[2%]">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="container py-10 flex justify-between items-center -mt-[1%] "
+        className="container py-10 flex justify-between items-center -mt-[2%] "
       >
         {/* Logo section */}
         <div>
