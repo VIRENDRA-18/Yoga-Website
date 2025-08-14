@@ -1,7 +1,8 @@
 import React from 'react';
 import { IoMdMenu } from "react-icons/io";
 import { motion } from "framer-motion";
-import logo from '../../assets/One-Jeet-Logo.png';
+import logo from "../../assets/One-Jeet-Logo.png"; // Correct default import
+import './Navbar.css';
 
 const NavbarMenu = [
   { id: 1, title: "Home", path: "/" },
@@ -22,11 +23,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div>
-          <img
-            src={logo}
-            alt="One Jeet Yoga"
-            className="h-24 w-auto md:h-23"
-          />
+          <img src={logo} alt="One Jeet Yoga" className="h-24 w-auto md:h-28" />
         </div>
 
         {/* Desktop Menu */}
