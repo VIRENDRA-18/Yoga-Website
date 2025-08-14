@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaMusic,
   FaDumbbell,
@@ -11,7 +12,6 @@ import {
   FaChild,
 } from "react-icons/fa";
 
-// Service Data with lighter colors
 const services = [
   {
     icon: <FaMusic className="text-pink-300 text-5xl mb-4" />,
@@ -90,21 +90,36 @@ const services = [
 const Services = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-center px-4">
+      
       {/* Heading */}
-      <h1 className="text-3xl font-bold mb-3 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-md">
-  🌿 Our Yoga & Wellness Programs 🌸
-</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-3xl font-bold mb-3 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent drop-shadow-md"
+      >
+        🌿 Our Yoga & Wellness Programs 🌸
+      </motion.h1>
 
       {/* Paragraph */}
-      <p className="text-lg max-w-2xl text-gray-700 mb-10">
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="text-lg max-w-2xl text-gray-700 mb-10"
+      >
         Discover our diverse range of yoga practices and wellness activities to rejuvenate your mind, body, and soul.
-      </p>
+      </motion.p>
 
       {/* Services Grid */}
       <div className="grid md:grid-cols-3 gap-8">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
             className={`
               bg-gradient-to-br ${service.base} 
               rounded-2xl shadow-lg p-6 
@@ -117,7 +132,7 @@ const Services = () => {
             {service.icon}
             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
             <p className="text-gray-600">{service.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

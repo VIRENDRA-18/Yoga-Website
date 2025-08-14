@@ -36,7 +36,7 @@ const NavbarMenu = [
 ];
 const Navbar = () => {
   return (
-    <header>
+    <header >
     <nav className="relative z-20 -mt-[2%]">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
