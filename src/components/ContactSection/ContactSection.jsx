@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail, MdCall } from "react-icons/md";
-import thankYouImage from "../../assets/thankyou.jpg";
+
 
 const ContactSection = () => {
   return (
@@ -121,19 +121,7 @@ const ContactSection = () => {
         </motion.div>
 
         {/* Thank You Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10 flex justify-center"
-        >
-          <img
-            src={thankYouImage}
-            alt="Thank You"
-            className="w-60 h-auto drop-shadow-lg hover:scale-105 transition-all duration-300"
-          />
-        </motion.div>
+        
       </motion.div>
     </div>
   );
