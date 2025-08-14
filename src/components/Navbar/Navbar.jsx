@@ -1,8 +1,8 @@
 import React from 'react';
 import { IoMdMenu } from "react-icons/io";
 import { motion } from "framer-motion";
-import logo from "../../assets/One-Jeet-Logo.png"; // Correct default import
-import './Navbar.css';
+// If image is in public folder, remove import and use <img src="/One-Jeet-Logo.png" ... />
+import logo from "../../assets/One-Jeet-Logo.png"; // Make sure this path and file name are correct
 
 const NavbarMenu = [
   { id: 1, title: "Home", path: "/" },
@@ -19,11 +19,12 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="container mx-auto flex justify-between items-center py-4 px-6"
+        className="container max-w-screen-xl mx-auto flex justify-between items-center py-4 px-6"
       >
         {/* Logo */}
         <div>
           <img src={logo} alt="One Jeet Yoga" className="h-24 w-auto md:h-28" />
+          {/* If using public folder: <img src="/One-Jeet-Logo.png" alt="One Jeet Yoga" className="h-24 w-auto md:h-28" /> */}
         </div>
 
         {/* Desktop Menu */}
@@ -42,7 +43,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <button className="ml-6 flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-pink-500 hover:to-purple-500 shadow-lg transition-all duration-300">
+          <button className="group ml-6 flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-pink-500 hover:to-purple-500 shadow-lg transition-all duration-300">
             Join Demo Class
             <span className="inline-block transform transition-transform group-hover:translate-x-1">➜</span>
           </button>
@@ -50,7 +51,7 @@ const Navbar = () => {
 
         {/* Mobile Hamburger */}
         <div className="lg:hidden">
-          <IoMdMenu className="text-3xl text-gray-700 hover:text-purple-500 transition-all duration-300" />
+          <IoMdMenu aria-label="Open menu" className="text-3xl text-gray-700 hover:text-purple-500 transition-all duration-300" />
         </div>
       </motion.nav>
     </header>
