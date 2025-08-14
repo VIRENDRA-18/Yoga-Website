@@ -1,8 +1,8 @@
-import React from 'react';
-import { IoMdMenu } from "react-icons/io";
+import React, { useState } from "react";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion";
-// If image is in public folder, remove import and use <img src="/One-Jeet-Logo.png" ... />
-import logo from "../../assets/One-Jeet-Logo.png"; // Make sure this path and file name are correct
+// If image is in public folder, no import is needed
+// <img src="/One-Jeet-Logo.png" ... />
 
 const NavbarMenu = [
   { id: 1, title: "Home", path: "/" },
@@ -13,6 +13,8 @@ const NavbarMenu = [
 ];
 
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md shadow-md">
       <motion.nav
@@ -23,8 +25,11 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div>
-          <img src={logo} alt="One Jeet Yoga" className="h-24 w-auto md:h-28" />
-          {/* If using public folder: <img src="/One-Jeet-Logo.png" alt="One Jeet Yoga" className="h-24 w-auto md:h-28" /> */}
+          <img
+            src="/One-Jeet-Logo.png"
+            alt="One Jeet Yoga"
+            className="h-24 w-auto md:h-28"
+          />
         </div>
 
         {/* Desktop Menu */}
@@ -45,15 +50,60 @@ const Navbar = () => {
 
           <button className="group ml-6 flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-pink-500 hover:to-purple-500 shadow-lg transition-all duration-300">
             Join Demo Class
-            <span className="inline-block transform transition-transform group-hover:translate-x-1">➜</span>
+            <span className="inline-block transform transition-transform group-hover:translate-x-1">
+              ➜
+            </span>
           </button>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="lg:hidden">
-          <IoMdMenu aria-label="Open menu" className="text-3xl text-gray-700 hover:text-purple-500 transition-all duration-300" />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle Menu"
+          >
+            {mobileOpen ? (
+              <IoMdClose className="text-3xl text-gray-700 hover:text-purple-500 transition-all duration-300" />
+            ) : (
+              <IoMdMenu className="text-3xl text-gray-700 hover:text-purple-500 transition-all duration-300" />
+            )}
+          </button>
         </div>
       </motion.nav>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="lg:hidden bg-white/90 backdrop-blur-md shadow-md absolute w-full left-0 top-full px-6 py-6 z-20"
+        >
+          <ul className="flex flex-col gap-4">
+            {NavbarMenu.map((menu) => (
+              <li key={menu.id}>
+                <a
+                  href={menu.path}
+                  className="text-gray-700 font-medium py-2 px-4 block rounded hover:bg-purple-100 transition-all"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {menu.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            className="mt-4 w-full flex justify-center items-center gap-2 px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-pink-500 hover:to-purple-500 shadow-lg transition-all duration-300"
+            onClick={() => setMobileOpen(false)}
+          >
+            Join Demo Class
+            <span className="inline-block transform transition-transform group-hover:translate-x-1">
+              ➜
+            </span>
+          </button>
+        </motion.div>
+      )}
     </header>
   );
 };
